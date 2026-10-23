@@ -1,0 +1,2813 @@
+<!DOCTYPE html>
+<html lang="id"><head>
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  
+  <!-- ============================================================
+       METADATA WEBSITE (SEO, SOSIAL MEDIA & PENGATURAN WARNA HP)
+       ============================================================ -->
+  <title>March Web Studio - Jasa Pembuatan Website Profesional</title>
+  <meta name="description" content="Jasa pembuatan website profesional, landing page UMKM, dan company profile. Desain modern, cepat, responsif di HP, dan siap terima order WhatsApp.">
+  <meta property="og:title" content="March Web Studio - Website Profesional untuk Bisnis Anda">
+  <meta property="og:description" content="Solusi website modern, minimalis, dan responsif untuk UMKM dan profil perusahaan.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#071224">
+
+  <!-- Google Fonts: Plus Jakarta Sans untuk tipografi profesional & bersih -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+  <!-- ============================================================
+       GAYA CSS INTERNAL (SEMUA STYLING LENGKAP DALAM SATU TEMPAT)
+       Palet Warna: Biru Tua (#071224, #0B192C), Putih (#FFFFFF), Biru Terang (#0284C7, #38BDF8)
+       ============================================================ -->
+  <style>
+    /* Variabel Warna & Token Desain */
+    :root {
+      --bg-dark: #071224;         /* Biru tua terdalam untuk header & hero */
+      --surface-dark: #0B192C;    /* Biru tua sekunder untuk panel gelap */
+      --card-dark: #10243E;       /* Permukaan kartu gelap */
+      --primary: #0284C7;         /* Biru terang / sapphire untuk CTA utama */
+      --primary-hover: #0369A1;   /* Hover biru terang */
+      --accent: #38BDF8;          /* Biru aksen cerah untuk teks highlight */
+      --white: #FFFFFF;
+      --canvas-light: #F8FAFC;    /* Latar belakang terang lembut */
+      --surface-card: #FFFFFF;    /* Kartu putih */
+      --text-main: #0F172A;       /* Teks gelap judul */
+      --text-muted: #64748B;      /* Teks sekunder abu-abu */
+      --border-light: #E2E8F0;    /* Garis pemisah halus */
+      --border-dark: rgba(255, 255, 255, 0.12);
+      --wa-color: #25D366;        /* Warna resmi WhatsApp */
+      --wa-hover: #1EBE5D;
+      --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 25px -5px rgba(11, 25, 44, 0.08);
+      --shadow-lg: 0 20px 35px -8px rgba(7, 18, 36, 0.25);
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reset & Aturan Global */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--white);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    /* Scroll Margin Offset agar navigasi anchor tidak terpotong navbar sticky */
+    section[id], footer[id], header[id] {
+      scroll-margin-top: 75px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* Kontainer Responsif */
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 16px;
+      }
+    }
+
+    /* ============================================================
+       KOMPONEN TOMBOL ELEGAN & ACCESSIBLE (TOUCH TARGET >= 44px)
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 11px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      text-align: center;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0284C7, #0369A1);
+      color: var(--white);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0369A1, #075985);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-dark {
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
+      background-color: var(--white);
+    }
+    .btn-outline-dark:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background-color: #F0F9FF;
+    }
+
+    .btn-wa {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: var(--white);
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    }
+    .btn-wa:hover {
+      background: linear-gradient(135deg, #1EBE5D, #0F766E);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+      transform: translateY(-1px);
+    }
+
+    /* Kicker & Judul Bagian */
+    .subheading {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .section-title {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+
+    .section-desc {
+      font-size: clamp(14px, 1.8vw, 16px);
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto 40px auto;
+      line-height: 1.6;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* ============================================================
+       1. NAVBAR (NAVIGASI ATAS & MENU MOBILE RAPI)
+       ============================================================ */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(7, 18, 36, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 0;
+      transition: var(--transition);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.35);
+    }
+
+    .brand-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #94A3B8;
+      font-size: 14px;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-action {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Tombol Hamburger Khusus Layar HP dengan Animasi 'X' */
+    .hamburger-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .hamburger-btn span {
+      width: 20px;
+      height: 2px;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .hamburger-btn.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-btn.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Menu Mobile Drawer dengan Efek Frosted Glass */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 65px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 65px);
+      background: rgba(7, 18, 36, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 24px 20px;
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      display: block;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .mobile-menu-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+
+    .mobile-menu-links a {
+      color: #E2E8F0;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 48px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: var(--transition);
+    }
+
+    .mobile-menu-links a:active {
+      background: rgba(2, 132, 199, 0.2);
+      border-color: rgba(2, 132, 199, 0.5);
+      color: var(--white);
+    }
+
+    /* ============================================================
+       2. HERO SECTION DENGAN KEDALAMAN VISUAL MODERN
+       ============================================================ */
+    .hero-section {
+      background: radial-gradient(circle at 85% 15%, rgba(2, 132, 199, 0.18) 0%, transparent 50%),
+                  radial-gradient(circle at 15% 85%, rgba(16, 36, 62, 0.5) 0%, transparent 60%),
+                  var(--bg-dark);
+      color: var(--white);
+      padding: 60px 0 80px 0;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 40px 0 60px 0;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(2, 132, 199, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-size: clamp(30px, 5.2vw, 50px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+      text-wrap: balance;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #FFFFFF, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(14px, 2vw, 16px);
+      color: #94A3B8;
+      margin-bottom: 28px;
+      line-height: 1.6;
+      max-width: 520px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+    }
+
+    .stat-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+    }
+
+    .stat-item h4 {
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 800;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-item p {
+      font-size: 11px;
+      color: #94A3B8;
+      line-height: 1.3;
+      margin-top: 2px;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+    }
+
+    .hero-mockup-frame {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background-color: var(--surface-dark);
+    }
+
+    .mockup-header-bar {
+      height: 28px;
+      background: rgba(11, 25, 44, 0.85);
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mockup-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .dot-red { background-color: #EF4444; }
+    .dot-yellow { background-color: #F59E0B; }
+    .dot-green { background-color: #10B981; }
+
+    .hero-mockup-frame img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      bottom: -16px;
+      left: -16px;
+      background: rgba(11, 25, 44, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+
+    .floating-icon {
+      width: 36px;
+      height: 36px;
+      background: #25D366;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       3. SECTION LAYANAN KAMI (BENTO GRID MODERN)
+       ============================================================ */
+    .services-section {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: var(--canvas-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px 22px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+
+    .service-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .service-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .service-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .service-features {
+      list-style: none;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      color: #334155;
+    }
+
+    .service-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.4;
+    }
+
+    .service-features li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--primary);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ============================================================
+       4. SECTION KEUNGGULAN (4 KARTU BERSIH)
+       ============================================================ */
+    .features-section {
+      padding: 75px 0;
+      background-color: #F1F5F9;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 24px 18px;
+      border: 1px solid var(--border-light);
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-2px);
+    }
+
+    .feature-icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: #E0F2FE;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+
+    .feature-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .feature-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       5. SECTION PROSES PENGERJAAN
+       ============================================================ */
+    .process-section {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .step-card {
+      padding: 24px 18px;
+      border-radius: var(--radius-md);
+      background: #FAFBFD;
+      border: 1px solid var(--border-light);
+      transition: var(--transition);
+    }
+
+    .step-card:hover {
+      border-color: var(--primary);
+    }
+
+    .step-circle {
+      width: 38px;
+      height: 38px;
+      background: var(--surface-dark);
+      color: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .step-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       6. SECTION PORTOFOLIO DEMO (3 CONTOH LENGKAP)
+       ============================================================ */
+    .portfolio-section {
+      padding: 85px 0;
+      background: #EBF4F6;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .portfolio-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+
+    .portfolio-thumbnail {
+      position: relative;
+      height: 190px;
+      overflow: hidden;
+      background-color: var(--surface-dark);
+    }
+
+    .portfolio-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-card:hover .portfolio-thumbnail img {
+      transform: scale(1.04);
+    }
+
+    .portfolio-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(7, 18, 36, 0.85);
+      backdrop-filter: blur(6px);
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .portfolio-body {
+      padding: 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .portfolio-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .portfolio-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .portfolio-features-tag {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-features-tag span {
+      background: #F1F5F9;
+      color: #475569;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* ============================================================
+       7. SECTION PAKET HARGA (STARTER, BUSINESS, PREMIUM)
+       ============================================================ */
+    .pricing-section {
+      padding: 85px 0;
+      background-color: var(--white);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 32px 24px;
+      transition: var(--transition);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pricing-card.popular {
+      border: 2px solid var(--primary);
+      box-shadow: 0 12px 30px rgba(2, 132, 199, 0.12);
+      transform: scale(1.02);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .package-name {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .package-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .package-price {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--bg-dark);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .package-price small {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .pricing-list {
+      list-style: none;
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13px;
+      color: #334155;
+    }
+
+    .pricing-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.4;
+    }
+
+    .pricing-list li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--primary);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ============================================================
+       8. SECTION FAQ (TANYA JAWAB UMUM / ACCORDION MULUS)
+       ============================================================ */
+    .faq-section {
+      padding: 80px 0;
+      background-color: var(--canvas-light);
+    }
+
+    .faq-container {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item.active {
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.06);
+    }
+
+    .faq-question {
+      width: 100%;
+      min-height: 52px;
+      padding: 16px 20px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .faq-question:hover {
+      color: var(--primary);
+    }
+
+    .faq-icon {
+      font-size: 18px;
+      font-weight: 400;
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+      color: var(--text-muted);
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      color: var(--primary);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 18px 20px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      border-top: 1px solid #F1F5F9;
+      padding-top: 12px;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    /* ============================================================
+       9. SECTION KONTAK & SIMULATOR WHATSAPP
+       ============================================================ */
+    .contact-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--bg-dark), #0B192C);
+      color: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .contact-info h2 {
+      font-size: clamp(26px, 3.5vw, 34px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .contact-info p {
+      color: #94A3B8;
+      font-size: 15px;
+      margin-bottom: 26px;
+      line-height: 1.6;
+    }
+
+    .contact-perks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .contact-perks li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #E2E8F0;
+    }
+
+    .contact-perks li span {
+      width: 24px;
+      height: 24px;
+      background: rgba(2, 132, 199, 0.2);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .contact-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-box h3 {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--white);
+    }
+
+    .contact-box p {
+      font-size: 13px;
+      color: #94A3B8;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #CBD5E1;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 14px;
+      background: rgba(7, 18, 36, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      background: rgba(7, 18, 36, 0.95);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 75px;
+    }
+
+    /* ============================================================
+       10. PANDUAN KODING HP ANDROID & EKSPOR FILE
+       ============================================================ */
+    .android-guide-section {
+      padding: 70px 0;
+      background-color: var(--canvas-light);
+      border-top: 1px solid var(--border-light);
+    }
+
+    .android-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .android-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--bg-dark);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .android-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    .guide-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .guide-item {
+      background: #F1F5F9;
+      padding: 16px;
+      border-radius: var(--radius-sm);
+    }
+
+    .guide-item h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .guide-item p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    .export-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* ============================================================
+       11. FOOTER MINIMALIS ELEGAN
+       ============================================================ */
+    .footer {
+      background-color: #040A14;
+      color: #94A3B8;
+      padding: 50px 0 24px 0;
+      font-size: 13px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 32px;
+      margin-bottom: 36px;
+    }
+
+    .footer-brand h4 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .footer-brand h4 span {
+      color: var(--accent);
+    }
+
+    .footer-brand p {
+      line-height: 1.6;
+      max-width: 300px;
+    }
+
+    .footer-col h5 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 12px;
+    }
+
+    /* ============================================================
+       12. MODAL PRATINJAU DEMO INTERAKTIF (POPUP)
+       ============================================================ */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(7, 18, 36, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: var(--white);
+      width: 100%;
+      max-width: min(820px, calc(100vw - 24px));
+      max-height: 90vh;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+      transition: max-width 0.3s ease;
+    }
+
+    .modal-header {
+      background: var(--bg-dark);
+      color: var(--white);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-close {
+      color: #CBD5E1;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+    }
+    .modal-close:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-toolbar {
+      background: #F1F5F9;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .modal-body {
+      padding: 20px;
+      overflow-y: auto;
+      flex: 1;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Tombol WhatsApp Mengambang (Floating Action Button) */
+    .fab-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 54px;
+      height: 54px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+      z-index: 900;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .fab-whatsapp:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6);
+    }
+
+    .fab-whatsapp svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+    }
+
+    /* Toast Notifikasi Elegan Pengganti window.alert */
+    .toast-box {
+      position: fixed;
+      bottom: 84px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(7, 18, 36, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #FFFFFF;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      padding: 12px 22px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 3000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      max-width: min(440px, 92vw);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .toast-box.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    /* ============================================================
+       RESPONSIVE DESIGN KHUSUS LAYAR HP & TABLET
+       ============================================================ */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .hero-mockup-frame img {
+        height: 280px;
+      }
+      .services-grid,
+      .portfolio-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      .features-grid,
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .guide-steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .pricing-card.popular {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-action .btn-primary {
+        display: none;
+      }
+      .hamburger-btn {
+        display: flex;
+      }
+      .hero-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding-top: 18px;
+      }
+      .stat-item {
+        padding: 8px 10px;
+        text-align: center;
+      }
+      .features-grid,
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .hero-floating-card {
+        bottom: -12px;
+        left: 8px;
+        padding: 8px 12px;
+      }
+      .floating-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+      }
+      .export-actions button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .hero-cta-group {
+        flex-direction: column;
+      }
+      .hero-cta-group .btn {
+        width: 100%;
+      }
+      .toast-box {
+        white-space: normal;
+        border-radius: 14px;
+      }
+    }
+  </style>
+<script src="/_aistudio-iframe.js?v=6634132a"></script><script src="https://cdn.jsdelivr.net/npm/html2canvas-pro@2.0.4"></script><style>.aistudio-hover-highlight { box-shadow: inset 0 0 0 0.5px white, inset 0 0 0 1.5px rgba(128,128,128,0.6) !important; }.aistudio-active-highlight { outline: 2px solid #87a9ff !important; outline-offset: -2px !important; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.3), inset 0 0 0 0.5px rgba(0,0,0,0.3) !important; }.aistudio-generating-blur { filter: blur(5px) grayscale(100%) brightness(28%) !important; transition: filter 0.3s ease; }#aistudio-focus-mode-tag { position: absolute; display: none; align-items: center; gap: 4px; background: #87a9ff; border-radius: 12px; z-index: 10000; padding: 8px; color: #32302c; font-family: Inter, sans-serif; font-size: 14px; font-style: normal; font-weight: 500; line-height: 21px; pointer-events: none; }#aistudio-hover-mode-tag { position: absolute; display: none; align-items: center; gap: 4px; background: rgba(128,128,128,0.6); border-radius: 12px; z-index: 10000; padding: 8px; color: white; font-family: Inter, sans-serif; font-size: 14px; font-style: normal; font-weight: 500; line-height: 21px; pointer-events: none; }.aistudio-img-icon { display: none; vertical-align: middle; pointer-events: auto; cursor: pointer; }.aistudio-img-icon.visible { display: inline-flex; }#aistudio-focus-mode-tag .aistudio-img-icon { position: relative; width: 26px; height: 26px; background: #32302c; border-radius: 6px; margin: -4px -4px -4px 0; }#aistudio-focus-mode-tag .aistudio-img-icon::before { content: ""; position: absolute; top: 4px; left: 4px; width: 18px; height: 18px; background-color: white; -webkit-mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); mask-size: contain; mask-repeat: no-repeat; }#aistudio-hover-mode-tag .aistudio-img-icon { position: relative; width: 18px; height: 18px; margin-left: 4px; }#aistudio-hover-mode-tag .aistudio-img-icon::before { content: ""; position: absolute; top: 0; left: 0; width: 18px; height: 18px; background-color: white; -webkit-mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); mask-size: contain; mask-repeat: no-repeat; }#aistudio-focus-mode-tag .aistudio-img-icon:hover, #aistudio-hover-mode-tag .aistudio-img-icon:hover { background: #424242 !important; }#aistudio-focus-mode-tag .aistudio-img-icon:active, #aistudio-hover-mode-tag .aistudio-img-icon:active { background: #393f51 !important; }</style></head>
+<body>
+
+  <!-- ============================================================
+       1. HEADER & NAVBAR (NAVIGASI ATAS DENGAN MENU HP RAPI)
+       ============================================================ -->
+  <header class="navbar" id="header-top">
+    <div class="container nav-wrapper">
+      <!-- Logo Brand -->
+      <a href="#hero" class="brand-logo" aria-label="March Web Studio">
+        <div class="brand-icon">M</div>
+        March <span>Web Studio</span>
+      </a>
+
+      <!-- Menu Navigasi Layar Komputer / Desktop -->
+      <nav aria-label="Navigasi Utama">
+        <ul class="nav-links">
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#keunggulan">Keunggulan</a></li>
+          <li><a href="#proses">Proses</a></li>
+          <li><a href="#portofolio">Portofolio Demo</a></li>
+          <li><a href="#paket-harga">Paket Harga</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <!-- Tombol Aksi Kanan & Tombol Hamburger HP -->
+      <div class="nav-action">
+        <button onclick="bukaModalPanduan()" class="btn btn-secondary" style="min-height: 38px; padding: 7px 12px; font-size: 12px;">
+          📱 Panduan HP
+        </button>
+        <a href="https://wa.me/6283177293295?text=Halo%20March%20Web%20Studio%2C%20saya%20ingin%20konsultasi%20mengenai%20pembuatan%20website%20untuk%20bisnis%20saya." target="_blank" rel="noopener noreferrer" onclick="bukaLinkWhatsApp('Halo March Web Studio, saya ingin konsultasi mengenai pembuatan website untuk bisnis saya.'); return false;" class="btn btn-primary" style="min-height: 38px; padding: 7px 16px; font-size: 13px;">
+          Konsultasi
+        </a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Buka Menu Navigasi" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu Drawer Mobile (Muncul Saat Ikon Hamburger di HP Ditekan) -->
+  <div class="mobile-menu" id="mobileMenu" aria-label="Menu Mobile">
+    <ul class="mobile-menu-links">
+      <li><a href="#layanan" onclick="navigasiKe('#layanan')"><span>Layanan Kami</span> <span>›</span></a></li>
+      <li><a href="#keunggulan" onclick="navigasiKe('#keunggulan')"><span>Keunggulan</span> <span>›</span></a></li>
+      <li><a href="#proses" onclick="navigasiKe('#proses')"><span>Proses Pengerjaan</span> <span>›</span></a></li>
+      <li><a href="#portofolio" onclick="navigasiKe('#portofolio')"><span>Portofolio Demo</span> <span>›</span></a></li>
+      <li><a href="#paket-harga" onclick="navigasiKe('#paket-harga')"><span>Paket Harga</span> <span>›</span></a></li>
+      <li><a href="#faq" onclick="navigasiKe('#faq')"><span>Tanya Jawab (FAQ)</span> <span>›</span></a></li>
+      <li><a href="#kontak" onclick="navigasiKe('#kontak')"><span>Kontak WhatsApp</span> <span>›</span></a></li>
+    </ul>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <button onclick="bukaModalPanduan(); toggleMobileMenu();" class="btn btn-secondary" style="width: 100%; justify-content: center;">
+        📱 Panduan Coding di HP Android &amp; Ekspor
+      </button>
+      <a href="https://wa.me/6283177293295?text=Halo%20March%20Web%20Studio%2C%20saya%20ingin%20konsultasi%20mengenai%20pembuatan%20website%20untuk%20bisnis%20saya." target="_blank" rel="noopener noreferrer" onclick="toggleMobileMenu(); bukaLinkWhatsApp('Halo March Web Studio, saya ingin konsultasi mengenai pembuatan website untuk bisnis saya.'); return false;" class="btn btn-primary" style="width: 100%; justify-content: center;">
+        Konsultasi Sekarang
+      </a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       2. HERO SECTION
+       ============================================================ -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <!-- Kolom Teks Hero -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          ✨ Solusi Digital untuk UMKM &amp; Pebisnis
+        </div>
+        <h1 class="hero-title">
+          Website Profesional untuk <span>Bisnis Anda</span>
+        </h1>
+        <p class="hero-subtitle">
+          Tingkatkan kredibilitas usaha, jangkau lebih banyak pelanggan lokal, dan terima pesanan langsung ke WhatsApp dengan website modern yang super cepat dan ramah smartphone.
+        </p>
+
+        <!-- Tombol Aksi Hero -->
+        <div class="hero-cta-group">
+          <a href="https://wa.me/6283177293295?text=Halo%20March%20Web%20Studio%2C%20saya%20ingin%20konsultasi%20gratis%20mengenai%20pembuatan%20website%20untuk%20bisnis%2FUMKM%20saya." target="_blank" rel="noopener noreferrer" class="btn btn-primary" onclick="bukaLinkWhatsApp('Halo March Web Studio, saya ingin konsultasi gratis mengenai pembuatan website untuk bisnis/UMKM saya.'); return false;">
+            Konsultasi Gratis via WhatsApp
+          </a>
+          <a href="#portofolio" class="btn btn-secondary">
+            Lihat Contoh Demo
+          </a>
+        </div>
+
+        <!-- 3 Statistik Ringkas -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h4>100%</h4>
+            <p>Responsif Layar HP</p>
+          </div>
+          <div class="stat-item">
+            <h4>2-3 Hari</h4>
+            <p>Pengerjaan Cepat</p>
+          </div>
+          <div class="stat-item">
+            <h4>Garansi</h4>
+            <p>Revisi &amp; Panduan</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kolom Gambar Hero dengan Mockup Frame -->
+      <div class="hero-image-wrapper">
+        <div class="hero-mockup-frame">
+          <div class="mockup-header-bar">
+            <span class="mockup-dot dot-red"></span>
+            <span class="mockup-dot dot-yellow"></span>
+            <span class="mockup-dot dot-green"></span>
+            <span style="font-size: 11px; color: #64748B; margin-left: 8px;">marchwebstudio.com</span>
+          </div>
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" onerror="this.onerror=null; this.src='/src/assets/images/hero_march_studio_1792759475591.jpg';" alt="Ruang Kerja Desain Website March Web Studio" loading="eager">
+        </div>
+        <!-- Kartu Mengambang Penegas Kredibilitas -->
+        <div class="hero-floating-card">
+          <div class="floating-icon">💬</div>
+          <div>
+            <div style="font-size: 12px; font-weight: 700; color: white;">Order Masuk Langsung</div>
+            <div style="font-size: 11px; color: #94A3B8;">Otomatis terhubung ke chat WhatsApp</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. SECTION LAYANAN KAMI (BENTO GRID MODERN)
+       ============================================================ -->
+  <section class="services-section" id="layanan">
+    <div class="container">
+      <div class="text-center">
+        <span class="subheading">Layanan Kami</span>
+        <h2 class="section-title">Solusi Website Sesuai Kebutuhan Usaha</h2>
+        <p class="section-desc">
+          Kami merancang website dengan pesan penjualan yang jelas agar calon pembeli langsung yakin dengan produk atau jasa Anda.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Layanan 1: Landing Page -->
+        <div class="service-card">
+          <div>
+            <div class="service-num">01. PROMOSI KILAT</div>
+            <h3 class="service-title">Landing Page Penjualan</h3>
+            <p class="service-text">
+              Halaman khusus satu tujuan (single-page) yang dirancang untuk memaksimalkan penjualan produk, promosi event, atau iklan medsos (Instagram &amp; TikTok Ads).
+            </p>
+            <ul class="service-features">
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Copywriting terstruktur &amp; persuasif</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Tombol order WhatsApp langsung</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Loading super cepat (kode ringan)</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Desain mobile-first untuk pengguna HP</span>
+              </li>
+            </ul>
+          </div>
+          <button onclick="pilihPaketHarga('Starter')" class="btn btn-outline-dark" style="width: 100%;">
+            Pilih Layanan Ini
+          </button>
+        </div>
+
+        <!-- Layanan 2: Website UMKM -->
+        <div class="service-card" style="border-color: #BAE6FD; background: #F0F9FF;">
+          <div>
+            <div class="service-num" style="color: #0369A1;">02. PALING POPULER</div>
+            <h3 class="service-title">Website UMKM &amp; Usaha Lokal</h3>
+            <p class="service-text">
+              Website lengkap untuk toko kuliner, cafe, bengkel, toko baju, jasa servis, dan warung modern agar mudah ditemukan calon pelanggan terdekat.
+            </p>
+            <ul class="service-features">
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Katalog menu &amp; daftar produk jelas</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Peta Google Maps &amp; jam operasional</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Galeri foto tempat usaha &amp; suasana</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Formulir booking / reservasi praktis</span>
+              </li>
+            </ul>
+          </div>
+          <button onclick="pilihPaketHarga('Business')" class="btn btn-primary" style="width: 100%;">
+            Pilih Layanan Ini
+          </button>
+        </div>
+
+        <!-- Layanan 3: Profil Perusahaan -->
+        <div class="service-card">
+          <div>
+            <div class="service-num">03. KREDIBILITAS TINGGI</div>
+            <h3 class="service-title">Profil Perusahaan (Company Profile)</h3>
+            <p class="service-text">
+              Membangun citra profesional untuk kantor jasa, biro konsultasi, klinik, vendor, kontraktor, dan agensi agar dipercaya oleh klien korporat.
+            </p>
+            <ul class="service-features">
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Visi, misi, dan daftar portofolio</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Struktur legalitas &amp; keunggulan tim</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Kontak resmi &amp; formulir penawaran</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Optimasi SEO dasar Google Search</span>
+              </li>
+            </ul>
+          </div>
+          <button onclick="pilihPaketHarga('Premium')" class="btn btn-outline-dark" style="width: 100%;">
+            Pilih Layanan Ini
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. SECTION KEUNGGULAN
+       ============================================================ -->
+  <section class="features-section" id="keunggulan">
+    <div class="container">
+      <div class="text-center">
+        <span class="subheading">Keunggulan</span>
+        <h2 class="section-title">Mengapa Memilih March Web Studio?</h2>
+        <p class="section-desc">
+          Kami memahami kebutuhan pemilik bisnis dan pemula yang menginginkan website berkualitas tinggi tanpa proses berbelit dan biaya mahal.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box">📱</div>
+          <h3 class="feature-title">Desain Ramah Smartphone</h3>
+          <p class="feature-desc">Mayoritas pengunjung internet mengakses website lewat ponsel. Kami pastikan tampilan 100% rapi dan nyaman disentuh.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">⚡</div>
+          <h3 class="feature-title">Kecepatan Loading Kilat</h3>
+          <p class="feature-desc">Kode bersih tanpa plugin berlebih, website terbuka seketika bahkan saat koneksi internet pelanggan sedang lambat.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">💬</div>
+          <h3 class="feature-title">Direct WhatsApp Order</h3>
+          <p class="feature-desc">Tombol beli otomatis membuka aplikasi WhatsApp dengan format pesan pemesanan yang sudah tersusun rapi.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">💰</div>
+          <h3 class="feature-title">Harga Jujur &amp; Terjangkau</h3>
+          <p class="feature-desc">Harga transparan mulai Rp 150.000 tanpa biaya tersembunyi. Sangat pas untuk modal awal UMKM dan bisnis rintisan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. SECTION PROSES PENGERJAAN
+       ============================================================ -->
+  <section class="process-section" id="proses">
+    <div class="container">
+      <div class="text-center">
+        <span class="subheading">Alur Kerja Praktis</span>
+        <h2 class="section-title">Proses Pembuatan Cepat &amp; Transparan</h2>
+        <p class="section-desc">
+          Hanya 4 langkah mudah dari konsultasi sampai website Anda siap online dan mulai menerima pembeli baru.
+        </p>
+      </div>
+
+      <div class="process-steps">
+        <div class="step-card">
+          <div class="step-circle">01</div>
+          <h3 class="step-title">Konsultasi Kebutuhan</h3>
+          <p class="step-desc">Diskusikan nama usaha, tema warna, foto produk, dan nomor WhatsApp yang ingin dipasang via chat.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-circle">02</div>
+          <h3 class="step-title">Desain &amp; Coding</h3>
+          <p class="step-desc">Kami merancang tata letak modern, memastikan responsivitas layar HP, dan menguji kecepatan website.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-circle">03</div>
+          <h3 class="step-title">Review &amp; Revisi</h3>
+          <p class="step-desc">Anda melihat pratinjau website dan memberikan masukan jika ada tulisan atau foto yang perlu disesuaikan.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-circle">04</div>
+          <h3 class="step-title">Serah Terima &amp; Online</h3>
+          <p class="step-desc">Website diluncurkan, file mentah diserahkan lengkap, dan kami sertakan panduan cara penggunaannya.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. SECTION PORTOFOLIO DEMO (3 CONTOH LENGKAP)
+       ============================================================ -->
+  <section class="portfolio-section" id="portofolio">
+    <div class="container">
+      <div class="text-center">
+        <span class="subheading">Portofolio &amp; Pratinjau Demo</span>
+        <h2 class="section-title">Contoh Website Demo Siap Pakai</h2>
+        <p class="section-desc">
+          Klik tombol <strong>"Lihat Demo Interaktif"</strong> pada masing-masing kartu di bawah untuk mencoba langsung tampilan dan fungsi website contoh.
+        </p>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- Demo 1: Restoran -->
+        <div class="portfolio-card">
+          <div class="portfolio-thumbnail">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="this.onerror=null; this.src='/src/assets/images/portfolio_resto_1792759476328.jpg';" alt="Website Restoran Dapur Rasa">
+            <div class="portfolio-badge">KULINER &amp; CAFE</div>
+          </div>
+          <div class="portfolio-body">
+            <div>
+              <h3 class="portfolio-title">Restoran Dapur Rasa Nusantara</h3>
+              <p class="portfolio-desc">
+                Website restoran keluarga dan cafe dengan menu digital bergambar, harga jelas, jam operasional, dan tombol reservasi meja via WhatsApp.
+              </p>
+              <div class="portfolio-features-tag">
+                <span>Menu Digital</span>
+                <span>Reservasi Meja</span>
+                <span>Peta Lokasi</span>
+                <span>Promo Harian</span>
+              </div>
+            </div>
+            <button onclick="bukaModalDemo('resto')" class="btn btn-primary" style="width: 100%;">
+              🔍 Lihat Demo Interaktif
+            </button>
+          </div>
+        </div>
+
+        <!-- Demo 2: Bengkel -->
+        <div class="portfolio-card">
+          <div class="portfolio-thumbnail">
+            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="this.onerror=null; this.src='/src/assets/images/portfolio_bengkel_1792759477661.jpg';" alt="Website Bengkel AutoPrima Service">
+            <div class="portfolio-badge">OTOMOTIF &amp; BENGKEL</div>
+          </div>
+          <div class="portfolio-body">
+            <div>
+              <h3 class="portfolio-title">Bengkel AutoPrima Service</h3>
+              <p class="portfolio-desc">
+                Website bengkel mobil dan motor dengan daftar paket servis berkala, ganti oli, estimasi biaya transparan, serta booking antrean mekanik.
+              </p>
+              <div class="portfolio-features-tag">
+                <span>Paket Servis</span>
+                <span>Booking Antrean</span>
+                <span>Jadwal Buka</span>
+                <span>Garansi Servis</span>
+              </div>
+            </div>
+            <button onclick="bukaModalDemo('bengkel')" class="btn btn-primary" style="width: 100%;">
+              🔍 Lihat Demo Interaktif
+            </button>
+          </div>
+        </div>
+
+        <!-- Demo 3: Toko Fashion -->
+        <div class="portfolio-card">
+          <div class="portfolio-thumbnail">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="this.onerror=null; this.src='/src/assets/images/portfolio_fashion_1792759477029.jpg';" alt="Website Butik UrbanStyle Fashion">
+            <div class="portfolio-badge">FASHION &amp; BUTIK</div>
+          </div>
+          <div class="portfolio-body">
+            <div>
+              <h3 class="portfolio-title">UrbanStyle Boutique</h3>
+              <p class="portfolio-desc">
+                Katalog busana kekinian untuk butik pakaian dan hijab. Dilengkapi filter kategori, foto model berkualitas, dan tombol beli langsung via WhatsApp.
+              </p>
+              <div class="portfolio-features-tag">
+                <span>Katalog Produk</span>
+                <span>Filter Ukuran/Warna</span>
+                <span>Order WA Kilat</span>
+                <span>Testimoni Pembeli</span>
+              </div>
+            </div>
+            <button onclick="bukaModalDemo('fashion')" class="btn btn-primary" style="width: 100%;">
+              🔍 Lihat Demo Interaktif
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. SECTION PAKET HARGA (STARTER, BUSINESS, PREMIUM)
+       ============================================================ -->
+  <section class="pricing-section" id="paket-harga">
+    <div class="container">
+      <div class="text-center">
+        <span class="subheading">Pilihan Paket Harga</span>
+        <h2 class="section-title">Investasi Terjangkau untuk Bisnis Anda</h2>
+        <p class="section-desc">
+          Pilih paket yang paling sesuai dengan kebutuhan usaha Anda saat ini. Semua paket sudah termasuk desain responsif dan integrasi WhatsApp.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Paket Starter -->
+        <div class="pricing-card">
+          <div>
+            <h3 class="package-name">Paket Starter</h3>
+            <p class="package-sub">Cocok untuk promosi produk tunggal atau event kilat</p>
+            <div class="package-price">
+              Rp 150.000 <small>/ sekali bayar</small>
+            </div>
+            <ul class="pricing-list">
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>1 Halaman Landing Page Responsif</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Desain Khusus Layar HP &amp; Laptop</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Tombol Pesan WhatsApp Langsung</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Waktu Pengerjaan Cepat (2-3 Hari)</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>1x Kesempatan Revisi Teks &amp; Foto</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Panduan Cara Pakai &amp; Edit Sederhana</span>
+              </li>
+            </ul>
+          </div>
+          <button onclick="pesanPaketWA('Starter', '150.000')" class="btn btn-outline-dark" style="width: 100%;">
+            Pesan Paket Starter
+          </button>
+        </div>
+
+        <!-- Paket Business (Paling Populer) -->
+        <div class="pricing-card popular">
+          <div class="popular-tag">Paling Banyak Dipilih</div>
+          <div>
+            <h3 class="package-name">Paket Business</h3>
+            <p class="package-sub">Solusi ideal untuk UMKM, toko lokal, cafe, dan bengkel</p>
+            <div class="package-price">
+              Rp 350.000 <small>/ sekali bayar</small>
+            </div>
+            <ul class="pricing-list">
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Hingga 3-5 Bagian / Section Lengkap</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Galeri Foto &amp; Katalog Produk / Menu</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Peta Lokasi Google Maps Terintegrasi</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Formulir Pemesanan WhatsApp Khusus</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Optimasi Kecepatan Loading Ringan</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Waktu Pengerjaan 3-5 Hari Kerja</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>3x Kesempatan Revisi</span>
+              </li>
+            </ul>
+          </div>
+          <button onclick="pesanPaketWA('Business', '350.000')" class="btn btn-primary" style="width: 100%;">
+            Pesan Paket Business
+          </button>
+        </div>
+
+        <!-- Paket Premium -->
+        <div class="pricing-card">
+          <div>
+            <h3 class="package-name">Paket Premium</h3>
+            <p class="package-sub">Tampilan eksklusif untuk profil perusahaan &amp; jasa profesional</p>
+            <div class="package-price">
+              Rp 750.000 <small>/ sekali bayar</small>
+            </div>
+            <ul class="pricing-list">
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Desain Kustom Modern &amp; Elegan</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Halaman / Section Sesuai Bahan Usaha</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Integrasi Media Sosial &amp; Kontak Lengkap</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Optimasi SEO On-Page Dasar Google</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Revisi Prioritas Sampai Disetujui</span>
+              </li>
+              <li>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>Bantuan Teknis &amp; Perawatan 1 Bulan</span>
+              </li>
+            </ul>
+          </div>
+          <button onclick="pesanPaketWA('Premium', '750.000')" class="btn btn-outline-dark" style="width: 100%;">
+            Pesan Paket Premium
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. SECTION FAQ (TANYA JAWAB UMUM)
+       ============================================================ -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="text-center">
+        <span class="subheading">Pertanyaan Umum</span>
+        <h2 class="section-title">Hal yang Sering Ditanyakan (FAQ)</h2>
+        <p class="section-desc">
+          Jawaban ringkas dan jelas seputar cara kerja, persiapan, dan biaya pembuatan website di March Web Studio.
+        </p>
+      </div>
+
+      <div class="faq-container">
+        <!-- Item FAQ 1 -->
+        <div class="faq-item active">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Berapa lama proses pembuatan websitenya?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Rata-rata pengerjaan Paket Starter hanya butuh waktu 2 sampai 3 hari kerja setelah materi (tulisan, foto produk, dan nomor WhatsApp) kami terima secara lengkap. Untuk paket Business sekitar 3-5 hari.
+          </div>
+        </div>
+
+        <!-- Item FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Apa saja yang perlu saya siapkan sebagai klien?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Cukup siapkan nama usaha Anda, daftar produk/layanan beserta harga, nomor WhatsApp untuk pemesanan, dan foto-foto produk atau toko (bisa difoto langsung pakai kamera HP Anda). Jika belum punya tulisan, kami siap bantu menyusunkan kalimat promosi yang menarik!
+          </div>
+        </div>
+
+        <!-- Item FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Apakah website bisa dibuka dengan bagus di HP Android?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Pasti! Kami menerapkan standar desain <em>mobile-first</em>. Tampilan tombol, teks, menu, dan gambar akan otomatis menyesuaikan ukuran layar ponsel pintar apa pun tanpa terpotong atau terasa lambat.
+          </div>
+        </div>
+
+        <!-- Item FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Bagaimana cara pembayaran dan pemesanannya?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Pembayaran dapat dilakukan melalui transfer bank atau e-wallet (GoPay/OVO/DANA/ShopeePay). Kami memberlakukan sistem DP (uang muka) 50% di awal pengerjaan dan pelunasan 50% setelah website selesai di-review dan siap diluncurkan.
+          </div>
+        </div>
+
+        <!-- Item FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Apakah ada biaya bulanan atau tahunan tersembunyi?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Tidak ada biaya tersembunyi. Untuk pembuatan website statis (HTML/CSS/JS), biaya pembuatan adalah sekali bayar. Jika Anda ingin kami membantu membelikan domain kustom (.com atau .id) dan hosting di kemudian hari, biayanya sangat transparan sesuai tarif resmi penyedia domain.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. SECTION KONTAK & SIMULATOR KIRIM WHATSAPP
+       ============================================================ -->
+  <section class="contact-section" id="kontak">
+    <div class="container contact-grid">
+      <!-- Kolom Kiri: Informasi Kontak -->
+      <div class="contact-info">
+        <span class="subheading" style="color: var(--accent);">Hubungi Kami</span>
+        <h2>Siap Punya Website Profesional Sekarang?</h2>
+        <p>
+          Jangan ragu untuk berdiskusi dengan kami terlebih dahulu. Konsultasi kebutuhan website Anda 100% gratis tanpa ikatan apa pun!
+        </p>
+
+        <ul class="contact-perks">
+          <li><span>✓</span> Respon Cepat melalui WhatsApp Setiap Hari</li>
+          <li><span>✓</span> Konsultasi Konsep &amp; Struktur Halaman Gratis</li>
+          <li><span>✓</span> Rekomendasi Paket Sesuai Anggaran UMKM</li>
+        </ul>
+
+        <div style="background: rgba(255,255,255,0.06); padding: 14px 18px; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.12);">
+          <div style="font-size: 12px; color: #CBD5E1; margin-bottom: 3px;">Nomor WhatsApp Resmi Kami:</div>
+          <div style="font-size: 20px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums;" id="displayNomorWA">+62 831-7729-3295</div>
+          <div style="font-size: 11px; color: #94A3B8; margin-top: 3px;">
+            (Nomor resmi aktif. Anda juga dapat menggantinya dengan mudah pada konstanta NOMOR_WHATSAPP di JavaScript)
+          </div>
+        </div>
+      </div>
+
+      <!-- Kolom Kanan: Formulir Pembuat Pesan WhatsApp Otomatis -->
+      <div class="contact-box">
+        <h3>Kirim Pesan Cepat via WhatsApp</h3>
+        <p>Isi data singkat berikut, pesan WhatsApp akan otomatis tersusun rapi untuk Anda kirimkan.</p>
+
+        <form id="waForm" onsubmit="handleFormKirimWA(event)">
+          <div class="form-group">
+            <label for="inputNama">Nama Anda / Pemilik Usaha</label>
+            <input type="text" id="inputNama" placeholder="Contoh: Budi Santoso" required="">
+          </div>
+
+          <div class="form-group">
+            <label for="inputJenisUsaha">Jenis Usaha / Bisnis Anda</label>
+            <input type="text" id="inputJenisUsaha" placeholder="Contoh: Kedai Kopi, Bengkel Motor, Butik Hijab" required="">
+          </div>
+
+          <div class="form-group">
+            <label for="selectPaket">Pilihan Paket yang Diminati</label>
+            <select id="selectPaket">
+              <option value="Starter (Rp 150.000)">Paket Starter - Rp 150.000</option>
+              <option value="Business (Rp 350.000)" selected="">Paket Business - Rp 350.000 (Rekomendasi)</option>
+              <option value="Premium (Rp 750.000)">Paket Premium - Rp 750.000</option>
+              <option value="Konsultasi Dulu">Konsultasi Dulu / Tanya-tanya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="inputPesan">Catatan Tambahan (Opsional)</label>
+            <textarea id="inputPesan" placeholder="Contoh: Saya butuh website ada menu makanan dan tombol order WA..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-wa" style="width: 100%; padding: 13px; font-size: 15px;">
+            💬 Hubungi Kami via WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. PANDUAN BELAJAR CODING & EKSPOR FILE UNTUK HP ANDROID
+       ============================================================ -->
+  <section class="android-guide-section" id="panduan-hp">
+    <div class="container">
+      <div class="android-card">
+        <h3>📱 Panduan Khusus: Belajar Coding &amp; Uji Coba di HP Android</h3>
+        <p>
+          Sebagai pemula yang belajar membuat website di ponsel Android, Anda bisa mengedit, menguji, dan menjalankan file <code>index.html</code> ini secara 100% gratis dan offline tanpa perlu laptop ataupun koneksi internet terus-menerus!
+        </p>
+
+        <div class="guide-steps-grid">
+          <div class="guide-item">
+            <h4>1. Aplikasi Editor di HP</h4>
+            <p>Unduh aplikasi gratis dari Play Store seperti <strong>Acode</strong>, <strong>TrebEdit</strong>, atau <strong>QuickEdit</strong> untuk membuka dan mengubah kode HTML ini langsung di ponsel Anda.</p>
+          </div>
+          <div class="guide-item">
+            <h4>2. Cara Menjalankan di Browser</h4>
+            <p>Di aplikasi editor (misal TrebEdit/Acode), cukup klik tombol ikon <strong>Play (▶)</strong>, atau buka file yang tersimpan di Google Chrome Android untuk melihat hasil langsungnya.</p>
+          </div>
+          <div class="guide-item">
+            <h4>3. Mengganti Nomor WhatsApp</h4>
+            <p>Cari teks <code>const NOMOR_WHATSAPP = "6283177293295";</code> di bagian bawah file ini, lalu ganti angka tersebut dengan nomor WhatsApp pribadi Anda (gunakan format 628...).</p>
+          </div>
+        </div>
+
+        <div class="export-actions">
+          <button onclick="unduhFileIndexHtml()" class="btn btn-primary">
+            📥 Unduh File index.html (Tersimpan ke HP)
+          </button>
+          <button onclick="salinSeluruhKode()" class="btn btn-outline-dark" id="btnSalinKode">
+            📋 Salin Seluruh Kode HTML
+          </button>
+          <button onclick="bukaModalPanduan()" class="btn btn-outline-dark">
+            📖 Baca Panduan Lengkap
+          </button>
+          <span id="salinStatus" style="font-size: 13px; color: #16A34A; font-weight: 600; display: none;">
+            ✓ Kode berhasil disalin ke clipboard!
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. FOOTER
+       ============================================================ -->
+  <footer class="footer" id="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Kolom Brand -->
+        <div class="footer-brand">
+          <h4>March <span>Web Studio</span></h4>
+          <p>
+            Layanan jasa pembuatan website profesional, landing page, dan company profile modern dengan struktur bersih, cepat, dan terjangkau untuk memajukan bisnis Indonesia.
+          </p>
+        </div>
+
+        <!-- Kolom Menu Navigasi -->
+        <div class="footer-col">
+          <h5>Navigasi</h5>
+          <ul class="footer-links">
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#layanan">Layanan Kami</a></li>
+            <li><a href="#keunggulan">Keunggulan</a></li>
+            <li><a href="#proses">Alur Kerja</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom Portofolio -->
+        <div class="footer-col">
+          <h5>Demo Website</h5>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="bukaModalDemo('resto')">Restoran &amp; Cafe</a></li>
+            <li><a href="javascript:void(0)" onclick="bukaModalDemo('bengkel')">Bengkel Kendaraan</a></li>
+            <li><a href="javascript:void(0)" onclick="bukaModalDemo('fashion')">Butik &amp; Fashion</a></li>
+            <li><a href="#paket-harga">Daftar Harga</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom Kontak Ringkas -->
+        <div class="footer-col">
+          <h5>Kontak Langsung</h5>
+          <p style="margin-bottom: 8px;">WhatsApp: <a href="https://wa.me/6283177293295?text=Halo%20March%20Web%20Studio%2C%20saya%20ingin%20konsultasi%20mengenai%20pembuatan%20website." target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 700; text-decoration: none;">+62 831-7729-3295</a></p>
+          <p style="margin-bottom: 8px;">Email: halo@marchwebstudio.com</p>
+          <p>Jam Kerja: Senin - Sabtu (08:00 - 20:00 WIB)</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 March Web Studio. Hak Cipta Dilindungi Undang-Undang. Dibuat untuk UMKM &amp; Pembelajar Coding Android.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       TOMBOL WHATSAPP MENGAMBANG (FLOATING ACTION BUTTON)
+       ============================================================ -->
+  <a href="https://wa.me/6283177293295?text=Halo%20March%20Web%20Studio%2C%20saya%20ingin%20konsultasi%20mengenai%20pembuatan%20website." target="_blank" rel="noopener noreferrer" onclick="bukaLinkWhatsApp('Halo March Web Studio, saya ingin konsultasi mengenai pembuatan website.'); return false;" class="fab-whatsapp" aria-label="Chat WhatsApp Langsung">
+    <svg viewBox="0 0 24 24">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.586 1.777.818 2.795.819 3.188 0 5.774-2.587 5.774-5.767 0-3.181-2.586-5.771-5.773-5.771zm0 10.363c-.888 0-1.637-.253-2.348-.686l-.168-.102-1.745.457.466-1.7-.111-.176c-.477-.757-.729-1.503-.728-2.39.001-2.531 2.06-4.59 4.636-4.59 2.576 0 4.637 2.059 4.637 4.59 0 2.531-2.061 4.591-4.637 4.591zm3.176-3.486c-.174-.087-1.031-.509-1.191-.567-.16-.058-.277-.087-.394.087-.117.174-.452.567-.554.684-.102.116-.204.131-.378.044-.174-.087-.736-.271-1.402-.865-.518-.462-.868-1.033-.97-1.207-.102-.174-.011-.268.076-.355.078-.078.174-.204.261-.306.087-.102.116-.174.174-.29.058-.116.029-.218-.015-.306-.044-.087-.394-.949-.54-1.3-.142-.341-.287-.295-.394-.301l-.336-.006c-.116 0-.306.044-.466.218-.16.174-.612.598-.612 1.459 0 .861.626 1.694.714 1.811.087.116 1.233 1.883 2.987 2.64.417.18.743.288 1 .369.421.134.804.115 1.107.07.338-.051 1.031-.422 1.176-.828.146-.407.146-.756.102-.828-.043-.072-.16-.116-.334-.203z"></path>
+    </svg>
+  </a>
+
+  <!-- ============================================================
+       12. MODAL PRATINJAU DEMO INTERAKTIF (POPUP)
+       ============================================================ -->
+  <div class="modal-overlay" id="demoModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title" id="modalTitle">
+          <span>Pratinjau Demo</span>
+        </div>
+        <button class="modal-close" onclick="tutupModalDemo()" aria-label="Tutup">×</button>
+      </div>
+
+      <div class="modal-toolbar">
+        <span id="modalCategoryTag" style="font-weight: 700; color: var(--primary);">Kategori</span>
+        <div style="display: flex; gap: 6px;">
+          <button onclick="ubahTampilanMode('desktop')" id="btnViewDesktop" style="padding: 5px 10px; background: #0284C7; color: white; border-radius: 4px; font-weight: 600; font-size: 11px;">🖥️ Desktop</button>
+          <button onclick="ubahTampilanMode('mobile')" id="btnViewMobile" style="padding: 5px 10px; background: #E2E8F0; color: #0F172A; border-radius: 4px; font-weight: 600; font-size: 11px;">📱 Layar HP</button>
+        </div>
+      </div>
+
+      <div class="modal-body" id="modalBody">
+        <!-- Konten demo interaktif akan dimasukkan secara dinamis oleh JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       13. MODAL PANDUAN LENGKAP KODING ANDROID & EKSPOR
+       ============================================================ -->
+  <div class="modal-overlay" id="guideModal">
+    <div class="modal-content" style="max-width: 680px;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>📖 Panduan Coding di HP Android &amp; Cara Ekspor</span>
+        </div>
+        <button class="modal-close" onclick="tutupModalPanduan()" aria-label="Tutup">×</button>
+      </div>
+
+      <div class="modal-body">
+        <h4 style="font-size: 17px; color: var(--bg-dark); margin-bottom: 8px;">Halo Sahabat Pembelajar Coding Android! 👋</h4>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.6;">
+          Website ini sengaja kami rancang dalam <strong>satu file tunggal (Single File index.html)</strong> tanpa perlu instalasi React, Node.js, atau database yang rumit. Ini adalah metode belajar terbaik dan paling ringan untuk pemula yang hanya menggunakan HP Android.
+        </p>
+
+        <div style="background: #F8FAFC; border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 16px; margin-bottom: 20px;">
+          <h5 style="font-size: 14px; font-weight: 700; color: var(--text-main); margin-bottom: 10px;">Langkah Praktik di HP Android:</h5>
+          <ol style="padding-left: 18px; font-size: 13px; color: #334155; line-height: 1.8;">
+            <li><strong>Klik tombol "Unduh File index.html"</strong> di bawah. File akan langsung tersimpan di folder <em>Download</em> HP Anda.</li>
+            <li>Buka Play Store di HP, lalu instal aplikasi gratis bernama <strong>TrebEdit</strong> atau <strong>Acode</strong>.</li>
+            <li>Buka aplikasi tersebut, lalu pilih menu <em>Open File</em> dan buka file <code>index.html</code> yang tadi sudah diunduh.</li>
+            <li>Anda bisa bebas mengubah teks nama studio, judul layanan, dan mengganti nomor WhatsApp.</li>
+            <li>Tekan tombol <strong>Play (▶)</strong> di aplikasi editor untuk langsung melihat perubahan tampilan di layar HP secara offline!</li>
+          </ol>
+        </div>
+
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button onclick="unduhFileIndexHtml()" class="btn btn-primary" style="flex: 1; min-height: 42px;">
+            📥 Download File index.html Sekarang
+          </button>
+          <button onclick="salinSeluruhKode()" class="btn btn-outline-dark" style="flex: 1; min-height: 42px;">
+            📋 Salin Seluruh Kode
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       TOAST NOTIFIKASI ELEGAN (PENGGANTI WINDOW.ALERT)
+       ============================================================ -->
+  <div id="toastNotification" class="toast-box" role="status" aria-live="polite">
+    <span id="toastIcon">✓</span>
+    <span id="toastMessage">Pemberitahuan</span>
+  </div>
+
+  <!-- ============================================================
+       JAVASCRIPT MURNI (LOGIKA INTERAKTIF WEBSITE)
+       Nomor WhatsApp dan fungsi-fungsi tombol diatur di sini
+       ============================================================ -->
+  <script>
+    /* ==========================================================
+       KONFIGURASI PENTING (MUDAH DIGANTI OLEH PENGGUNA)
+       Format nomor: gunakan kode negara tanpa tanda plus atau strip.
+       Contoh: "6283177293295" untuk nomor 0831-7729-3295
+       ========================================================== */
+    const NOMOR_WHATSAPP = "6283177293295"; // <-- GANTI NOMOR ANDA DI SINI
+    const NAMA_STUDIO = "March Web Studio";
+
+    // 1. Tampilkan nomor WA di teks informasi halaman
+    document.addEventListener("DOMContentLoaded", () => {
+      const displayElem = document.getElementById("displayNomorWA");
+      if (displayElem && NOMOR_WHATSAPP) {
+        // Format cantik: +62 831-7729-3295
+        const formatted = "+" + NOMOR_WHATSAPP.slice(0, 2) + " " + NOMOR_WHATSAPP.slice(2, 5) + "-" + NOMOR_WHATSAPP.slice(5, 9) + "-" + NOMOR_WHATSAPP.slice(9);
+        displayElem.innerText = formatted;
+      }
+    });
+
+    // 2. Fungsi Toast Notification Elegan (Pengganti window.alert)
+    function tampilkanToast(pesan, ikon = "✓") {
+      const toast = document.getElementById("toastNotification");
+      const msgElem = document.getElementById("toastMessage");
+      const iconElem = document.getElementById("toastIcon");
+      if (!toast || !msgElem) return;
+
+      msgElem.innerText = pesan;
+      if (iconElem) iconElem.innerText = ikon;
+      toast.classList.add("show");
+
+      if (window.toastTimeout) clearTimeout(window.toastTimeout);
+      window.toastTimeout = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3500);
+    }
+
+    // 3. Fungsi Navigasi Ramah Mobile (Menutup Drawer HP & Scroll Halus)
+    function navigasiKe(targetSelector) {
+      const menu = document.getElementById("mobileMenu");
+      const btn = document.getElementById("hamburgerBtn");
+      if (menu && menu.classList.contains("active")) {
+        menu.classList.remove("active");
+        if (btn) btn.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+
+      const targetElem = document.querySelector(targetSelector);
+      if (targetElem) {
+        targetElem.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    // 4. Fungsi Tombol Menu Hamburger di HP
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobileMenu");
+      const btn = document.getElementById("hamburgerBtn");
+      if (!menu) return;
+
+      menu.classList.toggle("active");
+      if (btn) btn.classList.toggle("active");
+
+      if (menu.classList.contains("active")) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    // 5. Helper Buka WhatsApp Aman (Anti-Popup Blocker)
+    function bukaLinkWhatsApp(pesanTeks) {
+      const url = `https://wa.me/${NOMOR_WHATSAPP}?text=${encodeURIComponent(pesanTeks)}`;
+      tampilkanToast("Membuka chat WhatsApp resmi...", "💬");
+      const a = document.createElement("a");
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    // 6. Fungsi Buka-Tutup Accordion FAQ
+    function toggleFaq(buttonElement) {
+      const item = buttonElement.parentElement;
+      const allItems = document.querySelectorAll(".faq-item");
+      
+      allItems.forEach(faq => {
+        if (faq !== item) {
+          faq.classList.remove("active");
+        }
+      });
+      
+      item.classList.toggle("active");
+    }
+
+    // 7. Fungsi Pemesanan Paket via WhatsApp
+    function pesanPaketWA(namaPaket, harga) {
+      const pesan = `Halo ${NAMA_STUDIO}, saya tertarik memesan *Paket ${namaPaket}* seharga Rp ${harga}. Mohon info langkah selanjutnya dan data apa saja yang perlu saya siapkan. Terima kasih!`;
+      bukaLinkWhatsApp(pesan);
+    }
+
+    // 8. Fungsi Pilihan Cepat dari Kartu Layanan ke Dropdown Form
+    function pilihPaketHarga(namaPilihan) {
+      const select = document.getElementById("selectPaket");
+      if (select) {
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].text.toLowerCase().includes(namaPilihan.toLowerCase())) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      navigasiKe("#kontak");
+    }
+
+    // 9. Fungsi Form Generator Pesan WhatsApp
+    function handleFormKirimWA(event) {
+      event.preventDefault();
+      
+      const nama = document.getElementById("inputNama").value.trim();
+      const jenisUsaha = document.getElementById("inputJenisUsaha").value.trim();
+      const paket = document.getElementById("selectPaket").value;
+      const catatan = document.getElementById("inputPesan").value.trim();
+
+      let teksPesan = `Halo ${NAMA_STUDIO},\n\n`;
+      teksPesan += `Perkenalkan saya: *${nama}*\n`;
+      teksPesan += `Jenis Usaha: *${jenisUsaha}*\n`;
+      teksPesan += `Paket Diminati: *${paket}*\n`;
+      if (catatan) {
+        teksPesan += `Catatan Kebutuhan: ${catatan}\n`;
+      }
+      teksPesan += `\nMohon info konsultasi dan penawaran selanjutnya. Terima kasih!`;
+
+      bukaLinkWhatsApp(teksPesan);
+    }
+
+    // 10. Tombol WhatsApp Mengambang (Floating Action Button)
+    function hubungiWALangsung() {
+      const pesan = `Halo ${NAMA_STUDIO}, saya ingin konsultasi mengenai pembuatan website untuk bisnis saya.`;
+      bukaLinkWhatsApp(pesan);
+    }
+
+    // ==========================================================
+    // 11. DATA & LOGIKA MODAL DEMO INTERAKTIF (3 PORTOFOLIO LENGKAP)
+    // ==========================================================
+    const demoData = {
+      resto: {
+        title: "Demo Website: Restoran Dapur Rasa Nusantara",
+        category: "KULINER & CAFE",
+        content: `
+          <div style="background: #FFFFFF; border-radius: 10px; border: 1px solid #E2E8F0; padding: 18px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 12px; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+              <div>
+                <h3 style="font-size: 18px; font-weight: 800; color: #071224;">DAPUR RASA NUSANTARA</h3>
+                <p style="font-size: 12px; color: #64748B;">Kuliner Asli Indonesia & Kopi Tradisional</p>
+              </div>
+              <span style="background: #DCFCE7; color: #166534; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">BUKA: 10:00 - 22:00 WIB</span>
+            </div>
+
+            <div style="background: #F8FAFC; border-radius: 8px; padding: 12px 14px; margin-bottom: 18px; border-left: 4px solid #0284C7;">
+              <h4 style="font-size: 13px; font-weight: 700; color: #0F172A; margin-bottom: 4px;">🔥 Promo Minggu Ini: Paket Hemat Berdua</h4>
+              <p style="font-size: 12px; color: #64748B;">Nasi Bebek Betutu Spesial + 2 Es Teh Manis hanya Rp 65.000 (Khusus Pesan WhatsApp Hari Ini).</p>
+            </div>
+
+            <h4 style="font-size: 15px; font-weight: 700; color: #0F172A; margin-bottom: 10px;">Daftar Menu Favorit Pelanggan:</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
+              <div style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; background: white;">
+                <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 13px;">
+                  <span>Bebek Goreng Crispy</span>
+                  <span style="color: #0284C7;">Rp 38.000</span>
+                </div>
+                <p style="font-size: 11px; color: #64748B; margin-top: 4px;">Disajikan dengan sambal korek pedas dan lalapan segar.</p>
+              </div>
+              <div style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; background: white;">
+                <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 13px;">
+                  <span>Nasi Liwet Komplit</span>
+                  <span style="color: #0284C7;">Rp 32.000</span>
+                </div>
+                <p style="font-size: 11px; color: #64748B; margin-top: 4px;">Ayam suwir gurih, telur pindang, tempe orek, dan sambal terasi.</p>
+              </div>
+              <div style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; background: white;">
+                <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 13px;">
+                  <span>Sop Iga Sapi Kuah Segar</span>
+                  <span style="color: #0284C7;">Rp 45.000</span>
+                </div>
+                <p style="font-size: 11px; color: #64748B; margin-top: 4px;">Daging iga empuk rempah alami beraroma wangi rempah.</p>
+              </div>
+              <div style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; background: white;">
+                <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 13px;">
+                  <span>Es Kopi Gula Aren</span>
+                  <span style="color: #0284C7;">Rp 18.000</span>
+                </div>
+                <p style="font-size: 11px; color: #64748B; margin-top: 4px;">Espresso pilihan dengan susu segar dan aren organik asli.</p>
+              </div>
+            </div>
+
+            <div style="background: #EBF4F6; border-radius: 8px; padding: 14px; text-align: center;">
+              <h5 style="font-size: 13px; font-weight: 700; margin-bottom: 4px;">Ingin Reservasi Meja atau Pesan Antar?</h5>
+              <p style="font-size: 12px; color: #475569; margin-bottom: 10px;">Cukup klik tombol di bawah, pesanan akan terkirim ke WhatsApp pengelola resto.</p>
+              <button onclick="pesanDemoWA('Restoran Dapur Rasa', 'Reservasi Meja')" class="btn btn-wa" style="min-height: 40px; padding: 8px 18px; font-size: 13px;">
+                💬 Pesan / Reservasi Meja via WhatsApp
+              </button>
+            </div>
+          </div>
+        `
+      },
+      bengkel: {
+        title: "Demo Website: Bengkel AutoPrima Service",
+        category: "OTOMOTIF & BENGKEL",
+        content: `
+          <div style="background: #FFFFFF; border-radius: 10px; border: 1px solid #E2E8F0; padding: 18px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 12px; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+              <div>
+                <h3 style="font-size: 18px; font-weight: 800; color: #071224;">AUTOPRIMA SERVICE</h3>
+                <p style="font-size: 12px; color: #64748B;">Spesialis Servis Berkala Mobil & Motor Injeksi</p>
+              </div>
+              <span style="background: #E0F2FE; color: #0369A1; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">GARANSI SERVIS 14 HARI</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
+              <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px;">
+                <div style="font-weight: 700; font-size: 14px; color: #071224; margin-bottom: 3px;">Paket Tune Up & Gurah Mesin</div>
+                <div style="font-size: 15px; font-weight: 800; color: #0284C7; margin-bottom: 4px;">Rp 175.000</div>
+                <p style="font-size: 11px; color: #64748B;">Pembersihan intake karburator/throttle body, cek busi, dan reset scanner ECU.</p>
+              </div>
+              <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px;">
+                <div style="font-weight: 700; font-size: 14px; color: #071224; margin-bottom: 3px;">Paket Ganti Oli + Filter Lengkap</div>
+                <div style="font-size: 15px; font-weight: 800; color: #0284C7; margin-bottom: 4px;">Rp 95.000 <small style="font-size: 11px; font-weight: 400; color: #64748B;">+ harga oli</small></div>
+                <p style="font-size: 11px; color: #64748B;">Gratis cek 15 titik keselamatan rem, rantai/vanbelt, aki, dan tekanan ban.</p>
+              </div>
+            </div>
+
+            <div style="border: 1px dashed #CBD5E1; border-radius: 8px; padding: 14px; margin-bottom: 18px; background: #FAFBFD;">
+              <h4 style="font-size: 13px; font-weight: 700; color: #071224; margin-bottom: 6px;">📍 Alamat & Jam Kerja:</h4>
+              <p style="font-size: 12px; color: #475569; margin-bottom: 3px;">Jl. Raya Utama No. 88, Sebelah Pom Bensin Prima</p>
+              <p style="font-size: 12px; color: #475569;">Buka: Senin - Sabtu (08.00 - 17.00 WIB) | Minggu: Khusus Booking Janji Temu</p>
+            </div>
+
+            <div style="background: #EBF4F6; border-radius: 8px; padding: 14px; text-align: center;">
+              <h5 style="font-size: 13px; font-weight: 700; margin-bottom: 4px;">Mau Booking Antrean Agar Tidak Menunggu Lama?</h5>
+              <p style="font-size: 12px; color: #475569; margin-bottom: 10px;">Pilih jam kedatangan Anda sekarang dan mekanik kami siap menyambut.</p>
+              <button onclick="pesanDemoWA('Bengkel AutoPrima', 'Booking Antrean Servis')" class="btn btn-wa" style="min-height: 40px; padding: 8px 18px; font-size: 13px;">
+                💬 Booking Jadwal Servis via WhatsApp
+              </button>
+            </div>
+          </div>
+        `
+      },
+      fashion: {
+        title: "Demo Website: UrbanStyle Boutique",
+        category: "FASHION & BUTIK",
+        content: `
+          <div style="background: #FFFFFF; border-radius: 10px; border: 1px solid #E2E8F0; padding: 18px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 12px; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+              <div>
+                <h3 style="font-size: 18px; font-weight: 800; color: #071224;">URBANSTYLE BOUTIQUE</h3>
+                <p style="font-size: 12px; color: #64748B;">Koleksi Busana Muslimah & Daily Casual Modern</p>
+              </div>
+              <span style="background: #FEF3C7; color: #92400E; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">NEW ARRIVALS 2026</span>
+            </div>
+
+            <h4 style="font-size: 14px; font-weight: 700; color: #0F172A; margin-bottom: 10px;">Koleksi Best Seller Pekan Ini:</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 20px;">
+              <div style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; text-align: center; background: #FAFBFD;">
+                <div style="font-size: 28px; margin-bottom: 4px;">👗</div>
+                <div style="font-size: 12px; font-weight: 700; color: #071224;">Linen Midi Dress</div>
+                <div style="font-size: 13px; font-weight: 800; color: #0284C7; margin: 3px 0;">Rp 135.000</div>
+                <div style="font-size: 11px; color: #64748B;">Bahan Adem, Size S-XXL</div>
+              </div>
+              <div style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; text-align: center; background: #FAFBFD;">
+                <div style="font-size: 28px; margin-bottom: 4px;">🧥</div>
+                <div style="font-size: 12px; font-weight: 700; color: #071224;">Oversized Cardigan</div>
+                <div style="font-size: 13px; font-weight: 800; color: #0284C7; margin: 3px 0;">Rp 120.000</div>
+                <div style="font-size: 11px; color: #64748B;">Warna Earth Tone</div>
+              </div>
+              <div style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; text-align: center; background: #FAFBFD;">
+                <div style="font-size: 28px; margin-bottom: 4px;">🧕</div>
+                <div style="font-size: 12px; font-weight: 700; color: #071224;">Pashmina Silk</div>
+                <div style="font-size: 13px; font-weight: 800; color: #0284C7; margin: 3px 0;">Rp 45.000</div>
+                <div style="font-size: 11px; color: #64748B;">Lembut & Mudah Diatur</div>
+              </div>
+            </div>
+
+            <div style="background: #EBF4F6; border-radius: 8px; padding: 14px; text-align: center;">
+              <h5 style="font-size: 13px; font-weight: 700; margin-bottom: 4px;">Suka dengan Salah Satu Model Pakaian di Atas?</h5>
+              <p style="font-size: 12px; color: #475569; margin-bottom: 10px;">Order langsung via chat WhatsApp dengan mengirim nama produk atau foto pilihan Anda.</p>
+              <button onclick="pesanDemoWA('UrbanStyle Boutique', 'Pesan Produk Fashion')" class="btn btn-wa" style="min-height: 40px; padding: 8px 18px; font-size: 13px;">
+                💬 Beli via WhatsApp Sekarang
+              </button>
+            </div>
+          </div>
+        `
+      }
+    };
+
+    function bukaModalDemo(key) {
+      const modal = document.getElementById("demoModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalCategoryTag = document.getElementById("modalCategoryTag");
+      const modalBody = document.getElementById("modalBody");
+
+      const data = demoData[key];
+      if (data) {
+        modalTitle.innerText = data.title;
+        modalCategoryTag.innerText = "Kategori: " + data.category;
+        modalBody.innerHTML = data.content;
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function tutupModalDemo() {
+      const modal = document.getElementById("demoModal");
+      if (modal) modal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+
+    function pesanDemoWA(namaUsaha, keperluan) {
+      const pesan = `Halo, saya melihat demo website *${namaUsaha}* dan ingin mencoba melakukan *${keperluan}*. Terima kasih!`;
+      bukaLinkWhatsApp(pesan);
+    }
+
+    function ubahTampilanMode(mode) {
+      const modalContent = document.querySelector("#demoModal .modal-content");
+      const btnDesktop = document.getElementById("btnViewDesktop");
+      const btnMobile = document.getElementById("btnViewMobile");
+
+      if (mode === "mobile") {
+        modalContent.style.maxWidth = "min(400px, calc(100vw - 24px))";
+        btnMobile.style.background = "#0284C7";
+        btnMobile.style.color = "white";
+        btnDesktop.style.background = "#E2E8F0";
+        btnDesktop.style.color = "#0F172A";
+      } else {
+        modalContent.style.maxWidth = "min(820px, calc(100vw - 24px))";
+        btnDesktop.style.background = "#0284C7";
+        btnDesktop.style.color = "white";
+        btnMobile.style.background = "#E2E8F0";
+        btnMobile.style.color = "#0F172A";
+      }
+    }
+
+    // ==========================================================
+    // 12. MODAL PANDUAN ANDROID & FITUR EKSPOR FILE
+    // ==========================================================
+    function bukaModalPanduan() {
+      const modal = document.getElementById("guideModal");
+      if (modal) modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function tutupModalPanduan() {
+      const modal = document.getElementById("guideModal");
+      if (modal) modal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+
+    // Fungsi Mengunduh File index.html Asli ke Penyimpanan HP Pengguna
+    function unduhFileIndexHtml() {
+      const htmlKonten = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      const blob = new Blob([htmlKonten], { type: "text/html;charset=utf-8" });
+      const downloadUrl = URL.createObjectURL(blob);
+      
+      const link = document.createElement("a");
+      link.href = downloadUrl;
+      link.download = "index.html";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
+
+      tampilkanToast("File index.html berhasil diunduh ke folder Download HP!", "📥");
+    }
+
+    // Fungsi Salin Seluruh Kode HTML ke Clipboard
+    function salinSeluruhKode() {
+      const htmlKonten = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(htmlKonten).then(() => {
+          tampilkanToast("Seluruh kode HTML berhasil disalin ke clipboard!", "📋");
+          const status = document.getElementById("salinStatus");
+          if (status) {
+            status.style.display = "inline";
+            setTimeout(() => {
+              status.style.display = "none";
+            }, 3500);
+          }
+        }).catch(() => {
+          tampilkanToast("Gunakan tombol 'Unduh File index.html' untuk menyimpannya.", "ℹ️");
+        });
+      } else {
+        tampilkanToast("Gunakan tombol 'Unduh File index.html' untuk menyimpannya.", "ℹ️");
+      }
+    }
+
+    // Menutup modal jika klik di luar area konten
+    window.addEventListener("click", (e) => {
+      const demoModal = document.getElementById("demoModal");
+      const guideModal = document.getElementById("guideModal");
+      if (e.target === demoModal) {
+        tutupModalDemo();
+      }
+      if (e.target === guideModal) {
+        tutupModalPanduan();
+      }
+    });
+
+    // Menutup modal & menu mobile saat menekan tombol Escape (ESC)
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        tutupModalDemo();
+        tutupModalPanduan();
+        const menu = document.getElementById("mobileMenu");
+        const btn = document.getElementById("hamburgerBtn");
+        if (menu && menu.classList.contains("active")) {
+          menu.classList.remove("active");
+          if (btn) btn.classList.remove("active");
+          document.body.style.overflow = "auto";
+        }
+      }
+    });
+  </script>
+
+
+</body></html>
